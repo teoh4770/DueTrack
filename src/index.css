@@ -2,7 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+butotn,
+input {
+  cursor: pointer;
+}
+
 input:focus {
   outline: 2px solid royalblue;
   box-shadow: 1px 1px 8px 1px royalblue;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border-radius: 50%;
+  border: none;
 }
