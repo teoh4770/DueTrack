@@ -1,0 +1,28 @@
+.button {
+  /* Spacing */
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  /* Typography */
+  text-align: center;
+  /* Colors */
+  background-color: var(--bg-color, transparent);
+  color: var(--color, black);
+  /* Others */
+  border: 2px solid rgb(148 163 184);
+
+  &:hover {
+    --bg-color: black;
+    --color: white;
+  }
+
+  &:focus-visible {
+    outline: 4px solid rgba(68, 76, 231, 0.12);
+  }
+
+  &:disabled {
+    --_bg-color: var(--bg-disabled) !important;
+    --_color: var(--text-disabled) !important;
+    box-shadow: none !important;
+    cursor: not-allowed;
+  }
+}

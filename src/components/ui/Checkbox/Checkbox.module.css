@@ -1,0 +1,17 @@
+.form-control {
+  /* Layout */
+  display: grid;
+  grid-template-columns: auto 1em;
+  gap: 0.5em;
+  /* Typography */
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.1;
+  /* Colors */
+  --form-control-color: black;
+}
+
+.form-control + .form-control {
+  margin-top: 0.5rem;
+}
