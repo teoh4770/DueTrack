@@ -2,17 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-butotn,
-input {
-  cursor: pointer;
+:root {
+  --form-control-disabled: #959495;
 }
 
-input:focus {
-  outline: 2px solid royalblue;
-  box-shadow: 1px 1px 8px 1px royalblue;
+/******* css reset ********/
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+
+  &::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    /* Use of box-shadow instead of background-color will enable the state of the radio to be visible when printed */
+    box-shadow: inset 1em 1em var(--form-control-color, black);
+    /* Windows High Contrast Mode */
+    background-color: CanvasText;
+    /* checkmark shape */
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  }
+
+  &:checked::before {
+    transform: scale(1);
+  }
+
+  &:focus-visible {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+  }
+
+  &:disabled {
+    --form-control-color: var(--form-control-disabled);
+
+    color: var(--form-control-disabled);
+    cursor: not-allowed;
+  }
 }
 
-input[type="color"]::-webkit-color-swatch {
-  border-radius: 50%;
-  border: none;
+input[type="color"] {
+  &:focus-visible {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+  }
+
+  &::-webkit-color-swatch {
+    border-radius: 50%;
+    border: none;
+  }
 }
