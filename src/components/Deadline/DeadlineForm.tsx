@@ -54,7 +54,7 @@ export const DeadlineForm = ({ className, onSubmit }: DeadlineFormProps) => {
       {!isFormOpened && (
         <Button
           type="button"
-          className="inline-block w-full capitalize"
+          className="inline-block w-full capitalize bg-[var(--add-button-bg-color)] border-none text-[var(--white)]"
           buttonText="Add new deadline"
           onClick={openForm}
         />
@@ -90,6 +90,7 @@ export const DeadlineForm = ({ className, onSubmit }: DeadlineFormProps) => {
               <ColorInput
                 spanText="Choose deadline's label color"
                 name="color"
+                className="aspect-square w-full"
                 hideLabel
               />
             </div>
@@ -100,7 +101,7 @@ export const DeadlineForm = ({ className, onSubmit }: DeadlineFormProps) => {
                 type="submit"
                 aria-label="confirm button"
                 buttonText="Add"
-                className="w-full border-none bg-[var(--add-button-bg-color)] text-white"
+                className="w-full border-none bg-[var(--bg-success)] text-white"
                 // icon={PlusIcon}
                 // iconOnly
               />
@@ -109,7 +110,7 @@ export const DeadlineForm = ({ className, onSubmit }: DeadlineFormProps) => {
                 type="reset"
                 aria-label="cancel button"
                 buttonText="Cancel"
-                className="w-full border-none bg-[var(--cancel-button-bg-color)] text-white"
+                className="w-full border-none bg-[var(--bg-danger)] text-white"
                 // icon={CrossIcon}
                 // iconOnly
                 onClick={closeForm}

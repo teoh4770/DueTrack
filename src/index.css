@@ -35,23 +35,41 @@
 /* html[theme=light] is the default */
 /* html[theme=dark] (how to follow the system setting?)*/
 html {
+  color-scheme: dark light;
+}
+
+html {
+  color-scheme: light;
   --text-color: var(--blue-grey-500);
   --background-color: var(--white);
   --grey-border-color: var(--grey-400);
   --wrapper-border-color: var(--blue-grey-500);
-  --add-button-bg-color: var(--bg-success);
-  --cancel-button-bg-color: var(--bg-danger);
+  --add-button-bg-color: var(--blue-grey-500);
   --option-action-btn-bg-color: var(--white);
   --option-toggle-bg-color: var(--grey-300);
+  --border: 3px solid var(--grey-border-color);
+  --border-radius: 10px;
 }
 
+/* @media (prefers-color-scheme: dark) {
+  html {
+    --text-color: var(--white);
+    --background-color: var(--black);
+    --grey-border-color: var(--blue-grey-600);
+    --wrapper-border-color: var(--blue-grey-600);
+    --add-button-bg-color: var(--blue-grey-600);
+    --option-action-btn-bg-color: var(--blue-grey-600);
+    --option-toggle-bg-color: var(--blue-grey-600);
+  }
+} */
+
 html[data-theme="dark"] {
+  color-scheme: dark;
   --text-color: var(--white);
   --background-color: var(--black);
   --grey-border-color: var(--blue-grey-600);
   --wrapper-border-color: var(--blue-grey-600);
-  --add-button-bg-color: var(--bg-success);
-  --cancel-button-bg-color: var(--bg-danger);
+  --add-button-bg-color: var(--blue-grey-600);
   --option-action-btn-bg-color: var(--blue-grey-600);
   --option-toggle-bg-color: var(--blue-grey-600);
 }
@@ -122,7 +140,7 @@ input[type="color"] {
 
   &::-webkit-color-swatch {
     border-radius: 50%;
-    border: none;
+    border: 1px solid gray;
   }
 }
 

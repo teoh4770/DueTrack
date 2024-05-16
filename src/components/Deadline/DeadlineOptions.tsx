@@ -1,10 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Checkbox } from "../../components";
 import { useDeadlines } from "../../hooks";
 
 export const DeadlineOptions = () => {
   const [isOpen, setIsOpen] = useState(false);
+  // make it global state
+  // set the setting based on user system setting for dark mode
+  const [darkMode, setDarkMode] = useState(false);
   const { deadlines, clearDeadlines } = useDeadlines();
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "");
+    }
+  }, [darkMode]);
 
   return (
     <div className="deadline__options max-w-sm grid ml-auto mt-2">
@@ -18,11 +29,15 @@ export const DeadlineOptions = () => {
       <div
         className={`${
           !isOpen && "sr-only"
-        } p-4  border-[3px] border-[var(--wrapper-border-color)]`}
+        } p-4 border-[var(--wrapper-border-color)] border-[3px] rounded-[var(--border-radius)]`}
       >
-        <div className="deadline__toggle-options grid gap-4 border-2 border-black p-4">
+        <div className="deadline__toggle-options grid gap-4 p-4 bg-[var(--option-action-btn-bg-color)]">
           <Checkbox spanText="Toasts" name="toasts" />
-          <Checkbox spanText="Dark Mode" name="dark-mode" />
+          <Checkbox
+            spanText="Dark Mode"
+            name="dark-mode"
+            onChange={() => setDarkMode((state) => !state)}
+          />
         </div>
 
         <hr className="h-[2px] bg-[#3e4a57] my-4" />

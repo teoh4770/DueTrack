@@ -65,7 +65,8 @@ export const DeadlineItem = ({
 
   return (
     // flex flex-wrap justify-between items-center
-    <div className="deadline__item grid gap-3 sm:flex sm:justify-between py-6 border-b-[3px] border-black last:border-none">
+    <div className="deadline__item grid gap-3 sm:flex sm:justify-between py-6 border-b-[3px] border-[var(--wrapper-border-color)] last:border-none">
+      {/* className="h-2 border-none bg-[var(--wrapper-border-color)] my-4 rounded-full" */}
       <div className="flex gap-3">
         <div
           className="deadline__color-indicator inline-block w-[5px] rounded-full"
