@@ -12,4 +12,14 @@ import { Deadline } from "./Deadline/Deadline.section.tsx";
 import { DeadlineItem } from "./Deadline/DeadlineItem.tsx";
 import { DeadlineList } from "./Deadline/DeadlineList.tsx";
 import { DeadlineOptions } from "./Deadline/DeadlineOptions.tsx";
-export { CurrentDate, Deadline, DeadlineItem, DeadlineList, DeadlineOptions };
+import { DeadlineForm } from "./Deadline/DeadlineForm.tsx";
+import { Header } from "./Header.tsx";
+export {
+  CurrentDate,
+  Deadline,
+  DeadlineItem,
+  DeadlineList,
+  DeadlineOptions,
+  DeadlineForm,
+  Header,
+};
