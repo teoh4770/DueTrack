@@ -53,6 +53,10 @@ export const useDeadlines = () => {
     setDeadlines(updatedDeadlines);
   };
 
+  const clearDeadlines = () => {
+    setDeadlines([]);
+  };
+
   const getOrderDeadlines = () => {
     const orderedDeadlines = [...deadlines].sort(
       (deadline1, deadline2) =>
@@ -68,6 +72,7 @@ export const useDeadlines = () => {
     removeDeadline,
     updateDeadline,
     updateDeadlineProperty,
+    clearDeadlines,
     getOrderDeadlines,
   };
 };
