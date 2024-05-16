@@ -13,17 +13,11 @@ export const DateInput = ({
   ...props
 }: ColorInputProps) => {
   const dateInputClasses = `${styles.input} ${className}`;
-  const currentDate = 0; // default should be today's date
 
   return (
     <label>
       <span className={hideLabel ? "sr-only" : ""}>{spanText}</span>
-      <input
-        type="date"
-        className={dateInputClasses}
-        {...props}
-        defaultValue={currentDate}
-      />
+      <input type="date" className={dateInputClasses} {...props} />
     </label>
   );
 };
