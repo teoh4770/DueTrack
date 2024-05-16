@@ -25,7 +25,11 @@ export const DeadlineList = ({
 
   return (
     <div className={deadlineListClasses} {...props}>
-      {deadlines.length > 0 ? Deadlines : <p>There's no deadlines...</p>}
+      {deadlines.length > 0 ? (
+        Deadlines
+      ) : (
+        <p className="text-xl text-center">You have no deadlines...🌴</p>
+      )}
     </div>
   );
 };

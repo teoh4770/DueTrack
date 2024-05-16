@@ -3,17 +3,67 @@
 @tailwind utilities;
 
 :root {
-  --form-control-disabled: #959495;
+  --red-400: #fa5252;
+  --red-500: #e63946;
+  --green-400: #40c057;
+  --blue-grey-400: #748ca3;
+  --blue-grey-500: #2c3e50;
+  --blue-grey-600: #3e4a57;
+  --grey-300: #e9ecef;
+  --grey-400: #ced4da;
+  --grey-500: #959495;
+  --white: #fff;
+  --black: #171a1d;
+
+  /* [brand/bg/text(component)]-[primary/disabled/secondary]-[state(hover/focus/emphasize/invert)] */
+
+  /* --brand-primary:  */
+  /* --brand-primary-focus */
+  /* --brand-primary-emphasize */
+  /* --brand-secondary */
+  /* --bg-disabled */
+  --bg-danger: var(--red-400);
+  --bg-danger-emphasize: var(--red-500);
+  --bg-success: var(--green-400);
+  --bg-overdue: var(--red-500);
+  /* --text-primary-hover */
+  /* --text-danger */
+  /* --text-disabled */
+}
+/* todo: update the name of the variables */
+/* light theme is the default theme? should follow the system */
+/* html[theme=light] is the default */
+/* html[theme=dark] (how to follow the system setting?)*/
+html {
+  --text-color: var(--blue-grey-500);
+  --background-color: var(--white);
+  --grey-border-color: var(--grey-400);
+  --wrapper-border-color: var(--blue-grey-500);
+  --add-button-bg-color: var(--bg-success);
+  --cancel-button-bg-color: var(--bg-danger);
+  --option-action-btn-bg-color: var(--white);
+  --option-toggle-bg-color: var(--grey-300);
 }
 
-/* html[theme=dark] */
-/* html[theme=light] */
+html[data-theme="dark"] {
+  --text-color: var(--white);
+  --background-color: var(--black);
+  --grey-border-color: var(--blue-grey-600);
+  --wrapper-border-color: var(--blue-grey-600);
+  --add-button-bg-color: var(--bg-success);
+  --cancel-button-bg-color: var(--bg-danger);
+  --option-action-btn-bg-color: var(--blue-grey-600);
+  --option-toggle-bg-color: var(--blue-grey-600);
+}
 
 body {
   font-family: "JetBrains Mono", monospace;
   font-optical-sizing: auto;
   font-weight: normal;
   font-style: normal;
+
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 /******* css reset ********/

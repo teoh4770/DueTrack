@@ -79,7 +79,7 @@ export const DeadlineItem = ({
           <label onDoubleClick={showTitleInput}>
             {!isEditingTitle && (
               <span
-                className={`deadline__title ${
+                className={`deadline__title font-medium ${
                   isDue ? "text-[#e63946]" : "text-black"
                 }`}
               >
@@ -98,7 +98,7 @@ export const DeadlineItem = ({
               />
             )}
           </label>
-          <p className="deadline__remaining-day text-[#748ca3]">
+          <p className="deadline__remaining-day text-[#748ca3] text-sm">
             {remainingDayMessage}
           </p>
         </div>
@@ -114,6 +114,7 @@ export const DeadlineItem = ({
 
         <Button
           type="button"
+          className="text-[var(--bg-danger)] border-[var(--bg-danger)]"
           aria-label="delete deadline button"
           buttonText="Remove this deadline"
           icon={BinIcon}

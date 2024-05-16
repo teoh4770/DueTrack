@@ -76,7 +76,7 @@ export const DeadlineForm = ({ className, onSubmit }: DeadlineFormProps) => {
             autoFocus
             required
           />
-          
+
           <div className="grid gap-3 sm:flex sm:justify-between">
             {/* date and color inputs */}
             <div className="flex justify-between gap-3">
@@ -100,7 +100,7 @@ export const DeadlineForm = ({ className, onSubmit }: DeadlineFormProps) => {
                 type="submit"
                 aria-label="confirm button"
                 buttonText="Add"
-                className="w-full"
+                className="w-full border-none bg-[var(--add-button-bg-color)] text-white"
                 // icon={PlusIcon}
                 // iconOnly
               />
@@ -109,7 +109,7 @@ export const DeadlineForm = ({ className, onSubmit }: DeadlineFormProps) => {
                 type="reset"
                 aria-label="cancel button"
                 buttonText="Cancel"
-                className="w-full"
+                className="w-full border-none bg-[var(--cancel-button-bg-color)] text-white"
                 // icon={CrossIcon}
                 // iconOnly
                 onClick={closeForm}

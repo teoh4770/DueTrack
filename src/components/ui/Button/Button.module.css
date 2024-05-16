@@ -5,14 +5,14 @@
   /* Typography */
   text-align: center;
   /* Colors */
-  background-color: var(--bg-color, transparent);
-  color: var(--color, black);
+  /* background-color: var(--bg-color, transparent);
+  color: var(--color, black); */
   /* Others */
-  border: 2px solid rgb(148 163 184);
+  border: 2px solid;
 
   &:hover {
-    --bg-color: black;
-    --color: white;
+    /* --bg-color: black;
+    --color: white;*/
   }
 
   &:focus-visible {
