@@ -6,6 +6,16 @@
   --form-control-disabled: #959495;
 }
 
+/* html[theme=dark] */
+/* html[theme=light] */
+
+body {
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+
 /******* css reset ********/
 input[type="checkbox"] {
   -webkit-appearance: none;
@@ -64,4 +74,13 @@ input[type="color"] {
     border-radius: 50%;
     border: none;
   }
+}
+
+::-webkit-calendar-picker-indicator {
+  padding: 0.25rem;
+  cursor: pointer;
+}
+
+input[type="color"] {
+  cursor: pointer;
 }
