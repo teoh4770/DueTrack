@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { Button, Checkbox } from "../../components";
 import { useDeadlines } from "../../hooks";
+import { exportDeadlines, isJson } from "../../utils";
+import { FileInput } from "../ui/FileInput/FileInput";
 
 export const DeadlineOptions = () => {
   const [isOpen, setIsOpen] = useState(false);
   // make it global state
   // set the setting based on user system setting for dark mode
   const [darkMode, setDarkMode] = useState(false);
-  const { deadlines, clearDeadlines } = useDeadlines();
+  const { deadlines, setDeadlines, clearDeadlines } = useDeadlines();
 
   useEffect(() => {
     if (darkMode) {
@@ -16,6 +18,66 @@ export const DeadlineOptions = () => {
       document.documentElement.setAttribute("data-theme", "");
     }
   }, [darkMode]);
+
+  function importFile(input: HTMLInputElement) {
+    if (input.files) {
+      try {
+        readTextFile(input.files[0]);
+        input.value = "";
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
+
+  function readTextFile(file: File) {
+    function getIsDeadlineItemArray(list: object) {
+      const isArray = Array.isArray(list);
+
+      if (isArray && list.length === 0) return true;
+
+      if (isArray && list.length > 0) {
+        const isDeadlineItemArray = list.every((item) => {
+          if (item instanceof Object) {
+            return (
+              Object.prototype.hasOwnProperty.call(item, "id") &&
+              Object.prototype.hasOwnProperty.call(item, "title") &&
+              Object.prototype.hasOwnProperty.call(item, "dueDate") &&
+              Object.prototype.hasOwnProperty.call(item, "color")
+            );
+          }
+          return false;
+        });
+
+        return isDeadlineItemArray;
+      }
+
+      return false;
+    }
+
+    function handleOnLoad(reader: FileReader) {
+      const result = reader.result as string;
+      if (!isJson(result)) {
+        throw new Error("The data is not JSON!");
+      }
+
+      const deadlines = JSON.parse(result);
+      const isDeadlineItemArray = getIsDeadlineItemArray(deadlines);
+      if (isDeadlineItemArray) {
+        setDeadlines(deadlines);
+      }
+    }
+
+    function handleOnError(reader: FileReader) {
+      throw new Error(String(reader.error));
+    }
+
+    const reader = new FileReader();
+    reader.readAsText(file);
+
+    reader.onload = () => handleOnLoad(reader);
+    reader.onerror = () => handleOnError(reader);
+  }
 
   return (
     <div className="deadline__options max-w-sm grid ml-auto mt-2">
@@ -47,12 +109,10 @@ export const DeadlineOptions = () => {
             type="button"
             className="block w-full bg-[var(--option-action-btn-bg-color)]"
             buttonText="Export to JSON"
+            onClick={() => exportDeadlines(deadlines)}
           />
-          <Button
-            type="button"
-            className="block w-full bg-[var(--option-action-btn-bg-color)]"
-            buttonText="Import from JSON"
-          />
+          <FileInput onChange={(e) => importFile(e.target)} accept=".txt" />
+
           <Button
             type="button"
             className={`block w-full ${

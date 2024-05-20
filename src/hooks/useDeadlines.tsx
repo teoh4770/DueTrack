@@ -68,6 +68,7 @@ export const useDeadlines = () => {
 
   return {
     deadlines,
+    setDeadlines,
     addDeadline,
     removeDeadline,
     updateDeadline,
