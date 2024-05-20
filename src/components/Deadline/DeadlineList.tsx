@@ -1,3 +1,4 @@
+import { useDeadlines } from "../../hooks";
 import { DeadlineItemInterface } from "../../types";
 import { DeadlineItem } from "./DeadlineItem";
 import { DivProps } from "react-html-props";
@@ -12,8 +13,11 @@ export const DeadlineList = ({
   ...props
 }: DeadlineListProps) => {
   const deadlineListClasses = `deadline__list ${className}`;
+  const { getOrderDeadlines } = useDeadlines();
 
-  const Deadlines = deadlines.map((deadline) => (
+  const orderedDeadlines = getOrderDeadlines();
+
+  const Deadlines = orderedDeadlines.map((deadline) => (
     <DeadlineItem
       key={deadline.id}
       id={deadline.id}
