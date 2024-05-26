@@ -1,6 +1,6 @@
 # 📅 DueTrack
 
-DueTrack is a deadline tracker app, built with React and TypeScript. I want an app to keep track of my tasks' due dates easily so that I would miss any of them, and keep myself accountable as well. I also build this side project for both learning purposes and personal usage.
+DueTrack is a deadline tracker app, built with React and TypeScript. I want an app to keep track of my tasks' due dates easily so that I wouldn't miss any of them, and keep myself accountable as well. I also build this side project for both learning purposes and personal usage.
 
 ## 📦 Technologies
 
