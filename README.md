@@ -1,20 +1,28 @@
-# 📅 Deadlines
+# 📅 DueTrack
 
-short description of deadline
+DueTrack is a deadline tracker app, built with React and TypeScript. I want an app to keep track of my tasks' due dates easily so that I wouldn't miss any of them, and keep myself accountable as well. I also build this side project for both learning purposes and personal usage.
 
 ## 📦 Technologies
 
-Probably use:
 -   <code>Vite</code>
 -   <code>React.js</code>
 -   <code>TypeScript</code>
 -   <code>Tailwind CSS</code>
+-   <code>CSS Module</code>
+-   <code>Vitest</code>
 -   <code>Testing Library</code>
+-   <code>Jotai</code>
 
 ## ✨ Features
 
-[Planning after completed the app]
-
+Here's what DueTrack offers:
+- [X] Add deadlines
+- [X] Edit deadlines
+- [ ] View the countdown for each deadline
+- [ ] Calendar view
+- [ ] Keyboard shortcuts
+- [ ] Set notifications
+- [ ] Able to focus on one deadlines
 
 ## 📚 What I Learned
 
@@ -34,6 +42,9 @@ To run the project in your local environment, follow these steps:
 
 ## 🍿 Video
 
-[Planning after completed the app]
+https://github.com/teoh4770/DueTrack/assets/98545971/1bcfa987-5070-4dc3-942d-c54e4a7a715a
 
 
+## Previous App that I have built
+
+[🍅Pomotama](https://github.com/teoh4770/Pomotama)
