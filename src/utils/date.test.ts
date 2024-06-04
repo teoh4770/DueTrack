@@ -1,5 +1,3 @@
-import { getProgress } from "./date";
-
 // provide different inputs for getProgress function
 describe("getProgress function", () => {
   // simple

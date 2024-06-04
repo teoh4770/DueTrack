@@ -1,5 +1,4 @@
 import { BinIcon } from "../../assets";
-import { DeadlineItemInterface } from "../../types/types.ts";
 import { Button } from "../ui/Button/Button.tsx";
 import { DateInput } from "../ui/DateInput/DateInput.tsx";
 import { useState } from "react";
@@ -9,19 +8,25 @@ import {
 } from "../../utils";
 import { useDeadlines } from "../../hooks";
 
-interface DeadlineItemProps extends DeadlineItemInterface {}
+interface DeadlineItemProps {
+  id: string;
+  title: string;
+  dueDate: string;
+  color: string;
+}
 
 export const DeadlineItem = ({
   id,
   title,
   dueDate,
-  color,
+  color
 }: DeadlineItemProps) => {
   const [isEditingTitle, setIsEditingTitle] = useState(false);
 
   const { updateDeadlineProperty, removeDeadline } = useDeadlines();
 
-  const isDue = calculateDaysUntilDueDate(dueDate) <= 0;
+  // !need to fix, the value is possibly undefined due to incorrect dueDate format
+  const isDue = calculateDaysUntilDueDate(dueDate)! <= 0;
   const remainingDayMessage = getFormattedDaysUntilDue(dueDate);
 
   function showTitleInput() {
