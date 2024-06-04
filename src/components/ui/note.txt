@@ -1,0 +1,4 @@
+- I only do testing for components that have extra attributes and behaviors
+- Styling is optional 
+- don't do premature optimization
+- replication is fine, you wanna be straightfoward

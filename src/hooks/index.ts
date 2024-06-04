@@ -1,2 +1,4 @@
 import { useDeadlines } from "./useDeadlines.tsx";
-export { useDeadlines }
+import { useInterval } from "./useInterval.tsx";
+
+export { useDeadlines, useInterval };

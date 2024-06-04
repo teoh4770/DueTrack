@@ -8,18 +8,21 @@ export { Button, Checkbox, ColorInput, DateInput, TextInput };
 
 // Components
 import { CurrentDate } from "./CurrentDate.tsx";
+import { Header } from "./Header.tsx";
 import { Deadline } from "./Deadline/Deadline.section.tsx";
 import { DeadlineItem } from "./Deadline/DeadlineItem.tsx";
 import { DeadlineList } from "./Deadline/DeadlineList.tsx";
 import { DeadlineOptions } from "./Deadline/DeadlineOptions.tsx";
 import { DeadlineForm } from "./Deadline/DeadlineForm.tsx";
-import { Header } from "./Header.tsx";
+import { Countdown } from "./Countdown/Countdown.section.tsx";
+
 export {
   CurrentDate,
+  Header,
   Deadline,
   DeadlineItem,
   DeadlineList,
   DeadlineOptions,
   DeadlineForm,
-  Header,
+  Countdown,
 };

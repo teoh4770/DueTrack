@@ -1,0 +1,42 @@
+@property --progress {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+.progressbar[role="progressbar"] {
+  --size: 120px;
+  --bar-width: 20px;
+
+  display: grid;
+  place-items: center;
+
+  width: var(--size);
+  aspect-ratio: 1 / 1;
+
+  /* progress is in percentage */
+  background: conic-gradient(
+    var(--progress-color, black) var(--progress, 0%),
+    lightgray 0%
+  );
+  box-shadow: 0 4px 15px 0 lightgray;
+
+  border-radius: 50%;
+
+  transition: --progress 500ms;
+
+  &::after {
+    content: attr(aria-valuenow) "%";
+    background: white;
+    border-radius: inherit;
+    width: calc(100% - var(--bar-width));
+    aspect-ratio: 1 / 1;
+
+    display: grid;
+    place-items: center;
+  }
+
+  span {
+    display: none;
+  }
+}

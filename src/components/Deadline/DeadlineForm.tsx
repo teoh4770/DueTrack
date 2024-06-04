@@ -1,11 +1,12 @@
 import { FormEvent, useState } from "react";
-// import { CrossIcon, PlusIcon } from "../../assets";
+import { CrossIcon, PlusIcon } from "../../assets";
 import { Button } from "../ui/Button/Button.tsx";
 import { ColorInput } from "../ui/ColorInput/ColorInput";
 import { DateInput } from "../ui/DateInput/DateInput.tsx";
 import { TextInput } from "../ui/TextInput/TextInput.tsx";
 import { DeadlineItemInterface } from "../../types/types.ts";
 import { getTodayDate } from "../../utils/date.ts";
+import { DateTime } from "luxon";
 
 interface DeadlineFormProps {
   className?: string;
@@ -37,6 +38,7 @@ export const DeadlineForm = ({ className, onSubmit }: DeadlineFormProps) => {
       title: formData.title as string,
       dueDate: formData.dueDate as string,
       color: formData.color as string,
+      initialTime: DateTime.now().toUnixInteger(),
     });
 
     $form.reset();
@@ -71,7 +73,7 @@ export const DeadlineForm = ({ className, onSubmit }: DeadlineFormProps) => {
             className="w-full"
             spanText="Enter new deadline title"
             name="title"
-            hideText
+            hideLabel
             placeholder="Enter deadline...."
             autoFocus
             required
@@ -102,8 +104,8 @@ export const DeadlineForm = ({ className, onSubmit }: DeadlineFormProps) => {
                 aria-label="confirm button"
                 buttonText="Add"
                 className="w-full border-none bg-[var(--bg-success)] text-white"
-                // icon={PlusIcon}
-                // iconOnly
+                icon={PlusIcon}
+                iconOnly
               />
 
               <Button
@@ -111,8 +113,8 @@ export const DeadlineForm = ({ className, onSubmit }: DeadlineFormProps) => {
                 aria-label="cancel button"
                 buttonText="Cancel"
                 className="w-full border-none bg-[var(--bg-danger)] text-white"
-                // icon={CrossIcon}
-                // iconOnly
+                icon={CrossIcon}
+                iconOnly
                 onClick={closeForm}
               />
             </div>

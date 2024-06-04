@@ -64,7 +64,6 @@ export const DeadlineItem = ({
   }
 
   return (
-    // flex flex-wrap justify-between items-center
     <div className="deadline__item grid gap-3 sm:flex sm:justify-between py-6 border-b-[3px] border-[var(--wrapper-border-color)] last:border-none">
       <div className="flex gap-3">
         <div

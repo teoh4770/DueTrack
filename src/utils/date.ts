@@ -1,3 +1,5 @@
+import { DateTime } from "luxon";
+
 const months = [
   "January",
   "Feb",
@@ -21,46 +23,40 @@ const formattedNumber = (value: number): string => {
   }
 };
 
-// get formatted date
 export const getTodayDate = (): string => {
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = formattedNumber(date.getMonth() + 1); // month is 0 base, so need to plus 1 to make it 1 base
-  const day = formattedNumber(date.getDate());
+  const date = DateTime.now();
+  const year = date.year;
+  const month = formattedNumber(date.month);
+  const day = formattedNumber(date.day);
 
   return `${year}-${month}-${day}`;
 };
 
 export const getTodayFormattedDate = () => {
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = months[date.getMonth()];
-  const day = date.getDate();
+  const date = DateTime.now();
+  const year = date.year;
+  const month = months[date.month - 1];
+  const day = date.day;
 
   return `${month} ${day}, ${year}`;
 };
 
-// Calculating the time difference of two dates
-const getDifferenceInTime = (date1: Date, date2: Date) => {
-  return date2.getTime() - date1.getTime();
-};
+export const getDifferenceInDays = (start: DateTime, end: DateTime) => {
+  const { days } = end.diff(start, "days").toObject();
 
-// Calculate the no. of days between two dates
-export const getDifferenceInDays = (date1: Date, date2: Date) => {
-  const DAY_IN_MILLISECONDS = 1000 * 3600 * 24;
-
-  const differenceInTime = getDifferenceInTime(date1, date2);
-  const differenceInDays = Math.round(differenceInTime / DAY_IN_MILLISECONDS);
-
-  return differenceInDays;
+  return days;
 };
 
 export const getDateFromDueDate = (dueDate: string) => {
   // dueDate = "2024-05-15"
-  const [year, month, day] = dueDate.split("-");
-  const date = new Date(+year, +month - 1, +day); // Date object's month is 0 base(Jan starts at 0)
-
-  return date;
+  try {
+    const [year, month, day] = dueDate.split("-");
+    const date = DateTime.local(+year, +month, +day);
+    return date;
+  } catch (error) {
+    console.error("Invalid date format:", error);
+    return DateTime.invalid("Invalid date");
+  }
 };
 
 const getFormattedDifferenceInDays = (differenceInDays: number) => {
@@ -77,12 +73,8 @@ const getFormattedDifferenceInDays = (differenceInDays: number) => {
 };
 
 export const calculateDaysUntilDueDate = (dueDate: string) => {
-  const today = new Date();
-  const date1 = new Date(
-    today.getFullYear(),
-    today.getMonth(),
-    today.getDate()
-  );
+  const today = DateTime.now();
+  const date1 = DateTime.local(today.year, today.month, today.day);
   const date2 = getDateFromDueDate(dueDate);
 
   const differenceInDays = getDifferenceInDays(date1, date2);
@@ -91,5 +83,44 @@ export const calculateDaysUntilDueDate = (dueDate: string) => {
 
 export const getFormattedDaysUntilDue = (dueDate: string) => {
   const daysUntilDueDate = calculateDaysUntilDueDate(dueDate);
+
+  if (typeof daysUntilDueDate !== "number") {
+    return "not a number";
+  }
   return getFormattedDifferenceInDays(daysUntilDueDate);
+};
+
+export const getCountDownSummaryFromDueDate = (dueDate: string) => {
+  const start = DateTime.now();
+  const end = getDateFromDueDate(dueDate);
+  const timeDifference = end.diff(start, [
+    "years",
+    "months",
+    "days",
+    "hours",
+    "minutes",
+    "seconds",
+  ]);
+
+  return timeDifference.toObject();
+};
+
+// initialTime is DateTime number
+export const getProgress = (dueDate: string, initialTime: number) => {
+  const startTime = initialTime;
+  const endTime = getDateFromDueDate(dueDate).toUnixInteger();
+  const currentTime = DateTime.now().toUnixInteger();
+
+  const totalTime = endTime - startTime;
+
+  // If the end time is in the past, progress is 100%
+  if (totalTime < 0) {
+    return 100;
+  }
+
+  const elapsedTime = currentTime - startTime;
+
+  const progressPercentage = (elapsedTime / totalTime) * 100;
+
+  return Math.min(progressPercentage, 100);
 };

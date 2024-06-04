@@ -60,8 +60,8 @@ export const useDeadlines = () => {
   const getOrderDeadlines = () => {
     const orderedDeadlines = [...deadlines].sort(
       (deadline1, deadline2) =>
-        getDateFromDueDate(deadline1.dueDate).getTime() -
-        getDateFromDueDate(deadline2.dueDate).getTime()
+        getDateFromDueDate(deadline1.dueDate).millisecond -
+        getDateFromDueDate(deadline2.dueDate).millisecond
     );
     return orderedDeadlines;
   };

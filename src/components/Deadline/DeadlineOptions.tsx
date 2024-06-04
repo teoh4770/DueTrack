@@ -6,8 +6,6 @@ import { FileInput } from "../ui/FileInput/FileInput";
 
 export const DeadlineOptions = () => {
   const [isOpen, setIsOpen] = useState(false);
-  // make it global state
-  // set the setting based on user system setting for dark mode
   const [darkMode, setDarkMode] = useState(false);
   const { deadlines, setDeadlines, clearDeadlines } = useDeadlines();
 
@@ -19,6 +17,7 @@ export const DeadlineOptions = () => {
     }
   }, [darkMode]);
 
+  // refactor
   function importFile(input: HTMLInputElement) {
     if (input.files) {
       try {
@@ -30,6 +29,7 @@ export const DeadlineOptions = () => {
     }
   }
 
+  // refactor
   function readTextFile(file: File) {
     function getIsDeadlineItemArray(list: object) {
       const isArray = Array.isArray(list);
@@ -117,7 +117,7 @@ export const DeadlineOptions = () => {
             type="button"
             className={`block w-full ${
               deadlines.length <= 0 && "sr-only"
-            } bg-[var(--bg-danger)] text-white`}
+            } bg-[var(--bg-danger)] text-white border-none`}
             buttonText="Purge database"
             onClick={clearDeadlines}
           />

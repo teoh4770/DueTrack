@@ -17,23 +17,12 @@
 
   /* [brand/bg/text(component)]-[primary/disabled/secondary]-[state(hover/focus/emphasize/invert)] */
 
-  /* --brand-primary:  */
-  /* --brand-primary-focus */
-  /* --brand-primary-emphasize */
-  /* --brand-secondary */
-  /* --bg-disabled */
   --bg-danger: var(--red-400);
   --bg-danger-emphasize: var(--red-500);
   --bg-success: var(--green-400);
   --bg-overdue: var(--red-500);
-  /* --text-primary-hover */
-  /* --text-danger */
-  /* --text-disabled */
 }
-/* todo: update the name of the variables */
-/* light theme is the default theme? should follow the system */
-/* html[theme=light] is the default */
-/* html[theme=dark] (how to follow the system setting?)*/
+
 html {
   color-scheme: dark light;
 }

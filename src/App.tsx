@@ -1,4 +1,4 @@
-import { Header, Deadline } from "./components";
+import { Header, Deadline, Countdown } from "./components";
 
 function App() {
   return (
@@ -6,10 +6,10 @@ function App() {
       <header className="flex flex-wrap justify-between items-center py-12">
         <Header />
       </header>
-      {/* deadline section */}
       <main className="deadline">
         <Deadline />
       </main>
+      <Countdown />
     </section>
   );
 }

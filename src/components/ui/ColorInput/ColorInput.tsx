@@ -2,7 +2,7 @@ import { InputProps } from "react-html-props";
 import styles from "./ColorInput.module.css";
 
 interface ColorInputProps extends InputProps {
-  spanText: string;
+  spanText?: string;
   hideLabel?: boolean;
 }
 
@@ -17,7 +17,12 @@ export const ColorInput = ({
   return (
     <label className={styles["form-control"]}>
       <span className={hideLabel ? "sr-only" : ""}>{spanText}</span>
-      <input type="color" className={colorInputClasses} {...props} />
+      <input
+        type="color"
+        className={colorInputClasses}
+        {...props}
+        aria-label="color input"
+      />
     </label>
   );
 };

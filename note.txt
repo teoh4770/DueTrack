@@ -1,0 +1,3 @@
+To import the assets from "src/assets" folder, simply do relative path import
+
+To import public assets, do /[public asset name].svg

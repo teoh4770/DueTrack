@@ -2,7 +2,7 @@ import { InputProps } from "react-html-props";
 import styles from "./Checkbox.module.css";
 
 interface CheckboxProps extends InputProps {
-  spanText: string;
+  spanText?: string;
 }
 
 export const Checkbox = ({ spanText, className, ...props }: CheckboxProps) => {

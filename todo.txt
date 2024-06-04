@@ -1,0 +1,12 @@
+[X] finish the color styling
+  - global properties setup
+  - include the global properties
+  - light mode and dark mode toggle
+[] enhance the date component
+[] enabled export and import JSON data 
+  - export feature
+  - import feature
+
+what i learn?
+- how to work with date class object
+- how to iterate on the same project with different type of technologies

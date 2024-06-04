@@ -2,7 +2,7 @@ import { ButtonPropsWithoutRef } from "react-html-props";
 import styles from "./Button.module.css";
 
 interface ButtonProps extends ButtonPropsWithoutRef {
-  buttonText: string;
+  buttonText?: string;
   icon?: React.ReactNode;
   iconOnly?: boolean;
 }
@@ -18,7 +18,9 @@ export const Button = ({
 
   return (
     <button className={buttonClasses} {...buttonProps}>
-      <span className={iconOnly ? "sr-only" : ""}>{buttonText}</span>
+      <p className={iconOnly ? "sr-only" : ""} aria-hidden={iconOnly}>
+        {buttonText}
+      </p>
       {icon}
     </button>
   );

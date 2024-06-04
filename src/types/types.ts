@@ -3,4 +3,5 @@ export interface DeadlineItemInterface {
   title: string;
   dueDate: string;
   color: string;
+  initialTime: number;
 }
