@@ -5,15 +5,7 @@ import { CurrentDate } from "./CurrentDate";
 export const Header = () => {
   return (
     <>
-      <h1 className="logo mr-3 text-xl sm:text-2xl font-semibold">Deadlines</h1>
-      {/* <Button
-        type="button"
-        aria-label="click here for more information about the app Deadline"
-        className="p-0 border-none"
-        buttonText="check out more information about Deadline"
-        icon={InfoIcon}
-        iconOnly
-      /> */}
+      <h1 className="logo mr-3 text-xl sm:text-2xl font-semibold">DueTrack</h1>
       <CurrentDate className="text-lg sm:text-2xl font-semibold" />
     </>
   );
