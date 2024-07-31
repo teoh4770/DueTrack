@@ -18,11 +18,7 @@ DueTrack is a deadline tracker app, built with React and TypeScript. I want an a
 Here's what DueTrack offers:
 - [X] Add deadlines
 - [X] Edit deadlines
-- [ ] View the countdown for each deadline
-- [ ] Calendar view
-- [ ] Keyboard shortcuts
-- [ ] Set notifications
-- [ ] Able to focus on one deadlines
+- [X] View the countdown for each deadline
 
 ## 📚 What I Learned
 
